@@ -1,0 +1,54 @@
+map(baden-wuerttemberg,bayern,bremen,hamburg,hessen,niedersachsen,nordrhein-westfalen,rheinland-pfalz,saarland,schleswig-holstein):-
+next_to(baden-wuerttemberg,bayern),
+next_to(baden-wuerttemberg,rheinland-pfalz),
+next_to(baden-wuerttemberg,hessen),
+next_to(bayern,baden-wuerttemberg),
+next_to(bayern,hessen),
+next_to(bremen,niedersachsen),
+next_to(hamburg,niedersachsen),
+next_to(hamburg,schleswig-holstein),
+next_to(hessen,baden-wuerttemberg),
+next_to(hessen,rheinland-pfalz),
+next_to(hessen,nordrhein-westfalen),
+next_to(hessen,niedersachsen),
+next_to(hessen,bayern),
+next_to(niedersachsen,hamburg),
+next_to(niedersachsen,schleswig-holstein),
+next_to(niedersachsen,hessen),
+next_to(niedersachsen,nordrhein-westfalen),
+next_to(niedersachsen,bremen),
+next_to(nordrhein-westfalen,niedersachsen),
+next_to(nordrhein-westfalen,hessen),
+next_to(nordrhein-westfalen,rheinland-pfalz),
+next_to(rheinland-pfalz,saarland),
+next_to(rheinland-pfalz,baden-wuerttemberg),
+next_to(rheinland-pfalz,hessen),
+next_to(rheinland-pfalz,nordrhein-westfalen),
+next_to(saarland,rheinland-pfalz),
+next_to(schleswig-holstein,hamburg),
+next_to(schleswig-holstein,niedersachsen).
+
+mapp(Berlin, Brandenburg, Mecklenburg-Vorpommern, Sachsen, Sachsen-Anhalt, Thueringen):-
+next_to(Berlin,Brandenburg),
+next_to(Brandenburg,Berlin),
+next_to(Brandenburg,Mecklenburg-Vorpommern),
+next_to(Brandenburg,Sachsen-Anhalt),
+next_to(Brandenburg,Sachsen),
+next_to(Mecklenburg-Vorpommern,Brandenburg),
+next_to(Sachsen,Sachsen-Anhalt),
+next_to(Sachsen,Thueringen),
+next_to(Sachsen,Brandenburg),
+next_to(Sachsen-Anhalt,Thueringen),
+next_to(Sachsen-Anhalt,Sachsen),
+next_to(Sachsen-Anhalt,Brandenburg),
+next_to(Thueringen,Sachsen-Anhalt),
+next_to(Thueringen,Sachsen). 
+
+farbe(rot).
+farbe(blau).
+farbe(gelb).
+
+next_to(X,Y):- 
+    farbe(X), 
+    farbe(Y), 
+    X \= Y.

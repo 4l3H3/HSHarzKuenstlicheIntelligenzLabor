@@ -1,0 +1,47 @@
+% male(X) :- "X ist männlich"
+male(heinrich).
+male(willi).
+male(herbert).
+male(ulrich).
+male(otto).
+
+% female(X) :- "X ist weiblich"
+female(maria).
+female(inge).
+female(gerda).
+female(ulrike).
+
+% married(X,Y) :- "X ist verheiratet mit Y"
+married(maria,heinrich).
+married(heinrich,maria).
+married(inge,willi).
+married(willi,inge).
+married(gerda,herbert).
+married(herbert,gerda).
+
+% child(X,Y) :- "X ist kind von Y"
+child(ulrich,inge).
+child(ulrich,willi).
+child(ulrike,inge).
+child(ulrike,willi).
+child(otto,gerda).
+child(otto,herbert).
+child(gerda,maria).
+child(gerda,heinrich).
+child(willi,maria).
+child(willi,heinrich).
+
+% father(X,Y) :- "X ist Vater von Y"
+father(X,Y):-  male(X),child(Y,X).
+
+% sibling(X,Y) :- "X ist Geschwisterkind von Y"
+sibling(X,Y):- child(X,Parent), child(Y,Parent), female(Parent).
+
+% sister(X,Y) :- "X ist Schwester von Y"
+sister(X,Y):- child(X,Parent), child(Y,Parent), female(Parent), female(X).
+
+% granny(X,Y) :- "X ist Großmutter von Y"
+granny(X,Y):- child(Y,Parent), child(Parent,X), female(X).
+
+% aunt(X,Y) :- "X ist Tante von Y"
+aunt(X,Y):- child(Y,Parent), sister(X,Parent).
